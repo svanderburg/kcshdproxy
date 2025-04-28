@@ -1,0 +1,8 @@
+*.uaem
+*.o
+*.device
+*.info
+*.lha
+*.lnk
+querypcparts
+searchmbr

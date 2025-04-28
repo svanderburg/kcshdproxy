@@ -1,0 +1,29 @@
+SCOPTS = LibCode # Define DEBUG=1
+
+all: kcshdproxy.device querypcparts searchmbr
+
+kcshdproxy.device: config.o kcshdproxy.o
+    slink with <<
+from lib:devent.o lib:devinitr.o config.o kcshdproxy.o
+lib lib:sc.lib lib:amiga.lib lib:debug.lib
+to kcshdproxy.device
+libfd kcshdproxy.fd
+<
+
+kcshdproxy.o: kcshdproxy.c smakefile SCOPTIONS
+    sc $(SCOPTS) kcshdproxy.c
+
+config.o: config.c smakefile SCOPTIONS
+    sc $(SCOPTS) config.c
+
+querypcparts: querypcparts.o
+    sc link querypcparts.o to querypcparts
+
+querypcparts.o: querypcparts.c smakefile SCOPTIONS
+    sc querypcparts.c
+
+searchmbr: searchmbr.o
+    sc link searchmbr.o to searchmbr
+
+searchmbr.o: searchmbr.c smakefile SCOPTIONS
+    sc searchmbr.c

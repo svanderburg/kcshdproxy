@@ -1,0 +1,7 @@
+Delete #?.o
+Delete #?.device
+Delete #?.lnk
+Delete #?.info
+Delete #?.lha
+Delete querypcparts
+Delete searchmbr
