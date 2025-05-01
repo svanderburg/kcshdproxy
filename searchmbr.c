@@ -88,6 +88,7 @@ int main(int argc, char *argv[])
                     {
                         fprintf(stderr, "Failed to do I/O! Error is: %d\n", ioRequest->io_Error);
                         exit_status = 1;
+                        break;
                     }
 
                     offset += BUFFER_SIZE;
